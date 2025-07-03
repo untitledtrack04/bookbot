@@ -1,6 +1,3 @@
-from test.test_configparser import SortedDict
-from pstats import SortKey
-from optparse import Values
 def get_book_text(file_path):
     with open(file_path) as f:
         file_contents = f.read()
