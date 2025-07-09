@@ -7,7 +7,7 @@ def get_num_words(file_path):
     book_txt = get_book_text(file_path)
     book_txt_array = book_txt.split()
     num_words = len(book_txt_array)
-    return(f'{num_words} words found in the document')
+    return(num_words)
 
 def get_num_chars(file_path):
     book_txt = get_book_text(file_path)
@@ -29,3 +29,16 @@ def sort_dictionary_by_occurrence(file_path):
         if not i.isalpha():
             remove_non_alpha.pop(i)
     return(remove_non_alpha)
+
+def print_dict_by_occurrence(file_path):
+    dictionary = sort_dictionary_by_occurrence(file_path)
+    for k,v in dictionary.items():
+        print(f"{k}: {v}")
+
+def print_report(file_path):
+    print("============ BOOKBOT ============")
+    print(f"Analyzing book found at {file_path}...")
+    print(f"----------- Word Count ----------\nFound {get_num_words(file_path)} total words")
+    print("--------- Character Count -------")
+    print_dict_by_occurrence(file_path)
+    print("============= END ===============")
