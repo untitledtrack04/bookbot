@@ -23,5 +23,9 @@ def get_num_chars(file_path):
 
 def sort_dictionary_by_occurrence(file_path):
     dictionary = get_num_chars(file_path)
-    list_of_dicts = {k: v for k, v in sorted(dictionary.items(), key=lambda item:item[1], reverse=True)}
-    return(list_of_dicts)
+    sorted_by_value = dict(sorted(dictionary.items(), key=lambda item: item[1], reverse=True))
+    remove_non_alpha = sorted_by_value.copy()
+    for i in sorted_by_value:
+        if not i.isalpha():
+            remove_non_alpha.pop(i)
+    return(remove_non_alpha)
